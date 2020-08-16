@@ -9,7 +9,7 @@ The **Registration** cog sets up your guild with Shopkeeper. All of its commands
 * **!share <email>**: Shares your Marketplace sheet to another email address.
 * **!reset**: Replace your Marketplace document with a fresh one. This will delete all data that you don't have saved somewhere else, so be careful!  
 ### Marketplace
-The **Marketplace** cog lives in a public channel lives in a public channel and manages your shops, as well as sending updates when a player makes a purchase.
+The **Marketplace** cog lives in a public channel and manages your shops, as well as sending updates when a player makes a purchase.
 * **!open <shop>**: Opens the specified shop for the players to access. This command is owner only.
 * **!close <shop>**: Closes the specified shop for player access. This command is owner only.
 * **!market**: This command sends a list of open shops to the channel.

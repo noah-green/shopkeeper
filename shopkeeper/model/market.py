@@ -1,0 +1,2 @@
+class Market:
+    pass
