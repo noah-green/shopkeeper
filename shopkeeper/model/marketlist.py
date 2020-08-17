@@ -3,7 +3,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 from market import Market
 
-class Model:
+class MarketList:
     def __init__(self):
         # use creds to create a client to interact with the Google Drive API
         scope = [
