@@ -7,4 +7,6 @@ bot = commands.Bot(command_prefix='!')
 async def on_ready():
     print(f'logged in as {bot.user}')
 
+bot.add_cog(commands.Shopping(bot))
+
 bot.run(os.environ['DISCORD_TOKEN'])

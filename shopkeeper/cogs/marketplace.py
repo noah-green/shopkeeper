@@ -1,4 +1,4 @@
 from discord.ext import commands
 
-class Configuration(commands.Cog):
+class Marketplace(commands.Cog):
     pass
