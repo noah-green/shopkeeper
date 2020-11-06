@@ -10,5 +10,5 @@ def get_sheets_client():
         'https://spreadsheets.google.com/feeds',
         'https://www.googleapis.com/auth/drive'
     ]
-    creds = ServiceAccountCredentials.from_json_keyfile_name('/mnt/c/Users/ngree/projects/shopkeeper/secrets/client_secret.json', scopes)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('../../../secrets/client_secret.json', scopes)
     return gspread.authorize(creds)
