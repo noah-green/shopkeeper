@@ -159,7 +159,7 @@ class Shopkeeper(commands.Cog):
             price = amount * shop.get_price(item_name)
             shop.buy_item(item_name, amount)
             ledger.append_row([ctx.author.name, shop.get_name(), item_name, amount, price])
-            await ctx.send(f'Purchased {amount} {item_name}(s)')
+            await ctx.send(f'Purchased {amount} {item_name}(s), for {price}gp')
         except ValueError:
             await ctx.send('Could not complete purchase')
 
