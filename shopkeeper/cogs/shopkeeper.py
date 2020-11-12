@@ -38,7 +38,7 @@ class Shopkeeper(commands.Cog):
     @commands.command()
     @commands.guild_only()
     @commands.has_permissions(administrator=True)
-    async def open(self, ctx, shop_name):
+    async def open(self, ctx, *, shop_name):
         """Open the specified shop."""
         if not self.registry.get_market(ctx.guild):
             await ctx.send('This server is not registered with Shopkeeper.')
@@ -52,7 +52,7 @@ class Shopkeeper(commands.Cog):
     @commands.command()
     @commands.guild_only()
     @commands.has_permissions(administrator=True)
-    async def close(self, ctx, shop_name):
+    async def close(self, ctx, *, shop_name):
         """Close the specified shop."""
         if not self.registry.get_market(ctx.guild):
             await ctx.send('This server is not registered with Shopkeeper.')
@@ -98,7 +98,7 @@ class Shopkeeper(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    async def shop(self, ctx, shop_name):
+    async def shop(self, ctx, *, shop_name):
         """Start a shopping session at the specified shop."""
         market = self.registry.get_market(ctx.guild)
         if not market:
@@ -134,7 +134,7 @@ class Shopkeeper(commands.Cog):
 
     @commands.command()
     @commands.dm_only()
-    async def inspect(self, ctx, item_name):
+    async def inspect(self, ctx, *, item_name):
         """View a detailed description of the specified item."""
         if not ctx.author.id in self.shoppers:
             await ctx.send('You are not currently shopping anywhere.')
@@ -147,7 +147,7 @@ class Shopkeeper(commands.Cog):
 
     @commands.command()
     @commands.dm_only()
-    async def buy(self, ctx, amount, item_name):
+    async def buy(self, ctx, amount, *, item_name):
         """Buy the specified number of the specified item."""
         if not ctx.author.id in self.shoppers:
             await ctx.send('You are not currently shopping anywhere.')
