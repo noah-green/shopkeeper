@@ -65,28 +65,6 @@ class Shopkeeper(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_permissions(administrator=True)
-    async def openall(self, ctx):
-        """Open all shops."""
-        if not self.registry.get_market(ctx.guild):
-            await ctx.send('This server is not registered with Shopkeeper.')
-            return
-        self.registry.get_market(ctx.guild).open_all_shops()
-        await ctx.send('Opened all shops.')
-
-    @commands.command()
-    @commands.guild_only()
-    @commands.has_permissions(administrator=True)
-    async def closeall(self, ctx, shop_name):
-        """Close all shops."""
-        if not self.registry.get_market(ctx.guild):
-            await ctx.send('This server is not registered with Shopkeeper.')
-            return
-        self.registry.get_market(ctx.guild).close_all_shops()
-        await ctx.send('Closed all shops.')
-
-    @commands.command()
-    @commands.guild_only()
     async def market(self, ctx):
         """Report a list of open shops."""
         market = self.registry.get_market(ctx.guild)
