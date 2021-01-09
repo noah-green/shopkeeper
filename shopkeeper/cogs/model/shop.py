@@ -39,7 +39,7 @@ class Shop:
             row = self.worksheet.find(item_name).row
         except gspread.exceptions.CellNotFound:
             raise ValueError
-        return int(self.worksheet.row_values(row)[1])
+        return int(self.worksheet.row_values(row, value_render_option='UNFORMATTED_VALUE')[1])
 
     def buy_item(self, item_name, quantity):
         try:
