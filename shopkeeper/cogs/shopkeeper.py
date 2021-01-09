@@ -9,8 +9,20 @@ class Shopkeeper(commands.Cog):
         self.registry = Registry()
         self.shoppers = {}
 
-    def update_stock_list():
-        pass
+    @commands.Cog.listener('on_reaction_add')
+    async def trigger_stock_update(self, reaction, user):
+        if (
+            user.id in self.shoppers and
+            reaction.message.id == self.shoppers[user.id]['stock_message'].id and
+            reaction.emoji == '🔄'
+            ):
+            await self.update_stock_list(user)
+
+
+    async def update_stock_list(self, user):
+        shop = self.shoppers[user.id]['shop']
+        message = self.shoppers[user.id]['stock_message']
+        await message.edit(content=shop.get_stock_message())
 
     @commands.command()
     @commands.guild_only()
@@ -91,13 +103,14 @@ class Shopkeeper(commands.Cog):
         shop = market.get_shop(shop_name)
         dm = await ctx.author.create_dm()
         stock_message = await dm.send(shop.get_stock_message())
+        await stock_message.add_reaction('🔄')
         await stock_message.pin()
         self.shoppers[ctx.author.id] = {
             'shop': shop,
             'stock_message': stock_message,
             'ledger' : market.get_ledger()
         }
-        await ctx.send(f'Started a shopping at {shop_name}. Check your DMs!')
+        await ctx.send(f'Started a shopping session at {shop_name}. Check your DMs!')
 
 
     @commands.command()
@@ -138,7 +151,9 @@ class Shopkeeper(commands.Cog):
             shop.buy_item(item_name, amount)
             ledger.append_row([ctx.author.name, shop.get_name(), item_name, amount, price])
             await ctx.send(f'Purchased {amount} {item_name}(s), for {price}gp')
-        except ValueError:
+            await self.update_stock_list(ctx.author)
+        except ValueError as e:
+            print(str(e))
             await ctx.send('Could not complete purchase')
 
     @commands.command()

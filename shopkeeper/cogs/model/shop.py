@@ -23,7 +23,8 @@ class Shop:
                 'Price': str(record['price']) + ' gp',
                 'Stock': record['stock']
             }
-            stocklist.append(item)
+            if int(record['stock']) != 0:
+                stocklist.append(item)
         table = tabulate(stocklist, headers='keys')
         return f"```{table}```"
 
