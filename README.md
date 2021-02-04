@@ -11,7 +11,7 @@ When you register your guild with Shopkeeper, you will receive a link to a Googl
 * **!shop <shop>**: starts a shopping session at the specified store in the users Direct Messages.
 ### Shopping
 Shopping sessions are started with the **!shop** command, and take place in Direct Messages. Shopping sessions will end after no commands have been sent for a period of time.
-* **!status** : Sends a message telling the user where they are shopping, or is no shopping session is active for them.
+* **!status** : Sends a message telling the user where they are shopping, or if no shopping session is active for them.
 * **!browse** : Sends a list of the items that are available at the shop, with prices and stock counts.
 * **!inspect <item>** Sends a detailed description of the specified item.
 * **!buy <item>** : 'Sell' an item  to the player. Shopkeeper does not currently track currency, so this command simply tells the player how much gold to deduct from their character sheet and records the purchase in the ledger.
