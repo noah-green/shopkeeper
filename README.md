@@ -8,9 +8,9 @@ When you register your guild with Shopkeeper, you will receive a link to a Googl
 * **!share <email>**: Shares your Marketplace sheet to another email address.
 ### Marketplace
 * **!market**: This command sends a list of open shops to the channel.
-* **!shop <shop>**: starts a shopping session at the specified store in the users Direct Messages using the Shopping cog.
+* **!shop <shop>**: starts a shopping session at the specified store in the users Direct Messages.
 ### Shopping
-The **Shopping** cog allows players to buy items from a shop. Shopping sessions are started with the **!shop** command, and take place in Direct Messages. Shopping sessions will end after no commands have been sent for a period of time.
+Shopping sessions are started with the **!shop** command, and take place in Direct Messages. Shopping sessions will end after no commands have been sent for a period of time.
 * **!status** : Sends a message telling the user where they are shopping, or is no shopping session is active for them.
 * **!browse** : Sends a list of the items that are available at the shop, with prices and stock counts.
 * **!inspect <item>** Sends a detailed description of the specified item.
